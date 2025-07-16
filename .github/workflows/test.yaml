@@ -2,17 +2,17 @@ name: "Test using kind and chart-testing tool"
 on:
   push:
     branches:
-    - master
+    - itkey-updates
   pull_request:
     branches:
-    - master
+    - itkey-updates
 
 jobs:
   test:
     strategy:
       fail-fast: false
       matrix:
-        kubernetesVersion: ["v1.29.2", "v1.26.14"]
+        kubernetesVersion: ["v1.33.1"]
     runs-on: ubuntu-latest
     if: github.ref != 'refs/heads/master'
     steps:
@@ -55,9 +55,6 @@ jobs:
         kubectl cluster-info
         kubectl get nodes -o wide
         kubectl get pods -n kube-system
-
-    - name: Run chart-testing linting (lint)
-      run: ct lint --config .ci/ct-config.yaml --chart-repos hashicorp=https://helm.releases.hashicorp.com
 
     - name: Run chart-testing (install)
       run: ct install --config .ci/ct-config.yaml

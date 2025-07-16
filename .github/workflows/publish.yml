@@ -2,7 +2,7 @@ name: Publish Charts to /docs
 
 on:
   push:
-    branches: [ master ]
+    branches: [ itkey-updates ]
 
 jobs:
   release:
@@ -59,5 +59,5 @@ jobs:
             if [ -z "${pkg:-}" ]; then
               break
             fi
-            helm push "${pkg}" "oci://ghcr.io/dandydeveloper/charts"
+            helm push "${pkg}" "oci://ghcr.io/6ax/charts"
           done

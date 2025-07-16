@@ -12,9 +12,9 @@ global:
 ##
 image:
   # -- Redis image repository
-  repository: public.ecr.aws/docker/library/redis
+  repository: docker.io/library/redis
   # -- Redis image tag
-  tag: 7.2.7-alpine
+  tag: 8.0.3-alpine3.21
   # -- Redis image pull policy
   pullPolicy: IfNotPresent
 
