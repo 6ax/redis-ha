@@ -2,10 +2,10 @@ name: "Test using kind and chart-testing tool"
 on:
   push:
     branches:
-    - master
+    - itkey-updates
   pull_request:
     branches:
-    - master
+    - itkey-updates
 
 jobs:
   test:
